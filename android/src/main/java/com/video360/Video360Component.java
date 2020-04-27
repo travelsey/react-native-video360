@@ -48,9 +48,9 @@ public class Video360Component extends RelativeLayout {
         statusText.setText(status.toString());
 
         if(isPaused){
-            //viewControls.setVisibility(View.VISIBLE);
+            viewControls.setVisibility(View.VISIBLE);
         }else{
-            //viewControls.setVisibility(View.GONE);
+            viewControls.setVisibility(View.GONE);
         }
     }
 

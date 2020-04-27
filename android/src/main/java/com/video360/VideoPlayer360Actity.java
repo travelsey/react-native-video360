@@ -98,7 +98,7 @@ public class VideoPlayer360Actity extends Activity {
         videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
         videoWidgetView.setEventListener(new ActivityEventListener());
 
-        volumeToggle = (ImageButton) findViewById(R.id.volume_toggle);
+        volumeToggle = (ImageButton) findViewById(R.id.play_toggle);
         volumeToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
