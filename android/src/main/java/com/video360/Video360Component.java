@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
@@ -17,6 +18,7 @@ public class Video360Component extends RelativeLayout {
     protected VrVideoView videoWidgetView;
     private SeekBar seekBar;
     private RelativeLayout viewControls;
+    private TextView statusText;
 
     private boolean isPaused = false;
 
@@ -27,7 +29,7 @@ public class Video360Component extends RelativeLayout {
     public void init() {
         this.view = inflate(getContext(), R.layout.activity_video_player_360, this);
         viewControls = (RelativeLayout) view.findViewById(R.id.viewControls);
-        viewControls.setVisibility(View.GONE);
+        //viewControls.setVisibility(View.GONE);
         statusText = (TextView) view.findViewById(R.id.status_text);
         seekBar = (SeekBar) view.findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
@@ -46,9 +48,9 @@ public class Video360Component extends RelativeLayout {
         statusText.setText(status.toString());
 
         if(isPaused){
-            viewControls.setVisibility(View.VISIBLE);
+            //viewControls.setVisibility(View.VISIBLE);
         }else{
-            viewControls.setVisibility(View.GONE);
+            //viewControls.setVisibility(View.GONE);
         }
     }
 
@@ -83,7 +85,6 @@ public class Video360Component extends RelativeLayout {
         @Override
         public void onLoadSuccess() {
             seekBar.setMax((int) videoWidgetView.getDuration());
-            loadVideoStatus = LOAD_VIDEO_STATUS_SUCCESS;
             updateStatusText();
             Log.i(TAG, "Successfully loaded video " + videoWidgetView.getDuration());
         }
