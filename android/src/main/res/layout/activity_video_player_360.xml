@@ -48,7 +48,7 @@
             android:layout_weight="1"
             android:paddingEnd="32dp"
             android:paddingStart="32dp"
-            android:text="Carcando ..."
+            android:text="Loading ..."
             android:textColor="#CCFFFFFF"
             android:textSize="12sp"/>
     </RelativeLayout>

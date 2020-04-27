@@ -21,7 +21,7 @@ import java.io.IOException;
 public class Video360Module extends SimpleViewManager {
     private static final String CLASS_NAME = "Video360";
     private static final String TAG = Video360Module.class.getSimpleName();
-    private VrVideoView view;
+    private Video360Component view;
     private View view2;
 
     public Video360Module(ReactApplicationContext context) { super(); }
@@ -33,8 +33,8 @@ public class Video360Module extends SimpleViewManager {
 
     @Override
     protected View createViewInstance(ThemedReactContext context) {
-        view = new VrVideoView(context.getCurrentActivity());
-        view.setEventListener(new ActivityEventListener());
+        view = new Video360Component(context.getCurrentActivity());
+        //view.setEventListener(new ActivityEventListener());
        // Log.d(TAG, "createViewInstance: test");
 
       //  view2 = View.inflate(context.getCurrentActivity(), R.layout.activity_video_player_360,null);
@@ -43,55 +43,55 @@ public class Video360Module extends SimpleViewManager {
     }
 
     @ReactProp(name = "displayMode")
-    public void setDisplayMode(VrVideoView view, String mode) {
+    public void setDisplayMode(Video360Component view, String mode) {
         switch(mode) {
             case "embedded":
-                view.setDisplayMode(VrWidgetView.DisplayMode.EMBEDDED);
+                view.videoWidgetView.setDisplayMode(VrWidgetView.DisplayMode.EMBEDDED);
                 break;
             case "fullscreen":
-                view.setDisplayMode(VrWidgetView.DisplayMode.FULLSCREEN_MONO);
+                view.videoWidgetView.setDisplayMode(VrWidgetView.DisplayMode.FULLSCREEN_MONO);
                 break;
             case "cardboard":
-                view.setDisplayMode(VrWidgetView.DisplayMode.FULLSCREEN_STEREO);
+                view.videoWidgetView.setDisplayMode(VrWidgetView.DisplayMode.FULLSCREEN_STEREO);
                 break;
             default:
-                view.setDisplayMode(VrWidgetView.DisplayMode.EMBEDDED);
+                view.videoWidgetView.setDisplayMode(VrWidgetView.DisplayMode.EMBEDDED);
                 break;
         }
     }
 
     @ReactProp(name = "volume")
-    public void setVolume(VrVideoView view, float value) {
-        view.setVolume(value);
+    public void setVolume(Video360Component view, float value) {
+        view.videoWidgetView.setVolume(value);
     }
 
     @ReactProp(name = "enableFullscreenButton")
-    public void setFullscreenButtonEnabled(VrVideoView view, Boolean enabled) {
-        view.setFullscreenButtonEnabled(enabled);
+    public void setFullscreenButtonEnabled(Video360Component view, Boolean enabled) {
+        view.videoWidgetView.setFullscreenButtonEnabled(enabled);
     }
 
     @ReactProp(name = "enableCardboardButton")
-    public void setCardboardButtonEnabled(VrVideoView view, Boolean enabled) {
-        view.setStereoModeButtonEnabled(enabled);
+    public void setCardboardButtonEnabled(Video360Component view, Boolean enabled) {
+        view.videoWidgetView.setStereoModeButtonEnabled(enabled);
     }
 
     @ReactProp(name = "enableTouchTracking")
-    public void setTouchTrackingEnabled(VrVideoView view, Boolean enabled) {
-        view.setTouchTrackingEnabled(enabled);
+    public void setTouchTrackingEnabled(Video360Component view, Boolean enabled) {
+        view.videoWidgetView.setTouchTrackingEnabled(enabled);
     }
 
     @ReactProp(name = "hidesTransitionView")
-    public void setTransitionViewEnabled(VrVideoView view, Boolean enabled) {
-        view.setTransitionViewEnabled(!enabled);
+    public void setTransitionViewEnabled(Video360Component view, Boolean enabled) {
+        view.videoWidgetView.setTransitionViewEnabled(!enabled);
     }
 
     @ReactProp(name = "enableInfoButton")
-    public void setInfoButtonEnabled(VrVideoView view, Boolean enabled) {
-        view.setInfoButtonEnabled(enabled);
+    public void setInfoButtonEnabled(Video360Component view, Boolean enabled) {
+        view.videoWidgetView.setInfoButtonEnabled(enabled);
     }
 
     @ReactProp(name = "urlVideo")
-    public void setVideo(VrVideoView view, String url) {
+    public void setVideo(Video360Component view, String url) {
        // String type = config.getString("type");
      //   Uri uri = Uri.parse(config.getString("uri"));
 
@@ -121,7 +121,7 @@ public class Video360Module extends SimpleViewManager {
         @Override
         public void onLoadSuccess() {
 
-            Log.i(TAG, "Successfully loaded video " + view.getDuration());
+            Log.i(TAG, "Successfully loaded video " + view.videoWidgetView.getDuration());
         }
 
         /**
@@ -147,7 +147,7 @@ public class Video360Module extends SimpleViewManager {
          */
         @Override
         public void onCompletion() {
-            if(view != null) view.seekTo(0);
+            if(view != null) view.videoWidgetView.seekTo(0);
         }
     }
 
@@ -155,7 +155,7 @@ public class Video360Module extends SimpleViewManager {
         @SuppressWarnings("WrongThread")
         protected Boolean doInBackground(Pair<Uri, VrVideoView.Options>... args) {
             try {
-                view.loadVideo(args[0].first, args[0].second);
+                view.videoWidgetView.loadVideo(args[0].first, args[0].second);
             } catch (IOException e) {}
 
             return true;
