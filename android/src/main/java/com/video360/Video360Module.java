@@ -112,9 +112,9 @@ public class Video360Module extends SimpleViewManager {
 //                videoOptions.inputType = VrVideoView.Options.TYPE_MONO;
 //                break;
 //        }
-
-        VideoLoaderTask videoLoaderTask = new VideoLoaderTask();
-        videoLoaderTask.execute(Pair.create(uri, videoOptions));
+        view.videoWidgetView.loadVideo(uri,videoOptions);
+        //VideoLoaderTask videoLoaderTask = new VideoLoaderTask();
+        //videoLoaderTask.execute(Pair.create(uri, videoOptions));
     }
 
     private class ActivityEventListener extends VrVideoEventListener {
