@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.video360;
 
 import android.content.Context;
 import android.util.Log;
