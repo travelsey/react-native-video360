@@ -16,7 +16,9 @@ public class Video360Component extends RelativeLayout {
 
     protected VrVideoView videoWidgetView;
     private SeekBar seekBar;
+    private RelativeLayout viewControls;
 
+    private boolean isPaused = false;
 
     public Video360Component(Context context) {
         super(context);
@@ -24,7 +26,9 @@ public class Video360Component extends RelativeLayout {
     }
     public void init() {
         this.view = inflate(getContext(), R.layout.activity_video_player_360, this);
-
+        viewControls = (RelativeLayout) view.findViewById(R.id.viewControls);
+        viewControls.setVisibility(View.GONE);
+        statusText = (TextView) view.findViewById(R.id.status_text);
         seekBar = (SeekBar) view.findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
         videoWidgetView = (VrVideoView) view.findViewById(R.id.video_view);
@@ -32,11 +36,38 @@ public class Video360Component extends RelativeLayout {
 
     }
 
+    private void updateStatusText() {
+        StringBuilder status = new StringBuilder();
+        status.append(isPaused ? "Paused: " : "Playing: ");
+        status.append(String.format("%.2f", videoWidgetView.getCurrentPosition() / 1000f));
+        status.append(" / ");
+        status.append(videoWidgetView.getDuration() / 1000f);
+        status.append(" seconds.");
+        statusText.setText(status.toString());
+
+        if(isPaused){
+            viewControls.setVisibility(View.VISIBLE);
+        }else{
+            viewControls.setVisibility(View.GONE);
+        }
+    }
+
+     private void togglePause() {
+        if (isPaused) {
+            videoWidgetView.playVideo();
+        } else {
+            videoWidgetView.pauseVideo();
+        }
+        isPaused = !isPaused;
+        updateStatusText();
+    }
+
     private class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if (fromUser) {
                 videoWidgetView.seekTo(progress);
+                updateStatusText();
             } // else this was from the ActivityEventHandler.onNewFrame()'s seekBar.setProgress update.
         }
 
@@ -51,7 +82,9 @@ public class Video360Component extends RelativeLayout {
     public class ActivityEventListener extends VrVideoEventListener {
         @Override
         public void onLoadSuccess() {
-
+            seekBar.setMax((int) videoWidgetView.getDuration());
+            loadVideoStatus = LOAD_VIDEO_STATUS_SUCCESS;
+            updateStatusText();
             Log.i(TAG, "Successfully loaded video " + videoWidgetView.getDuration());
         }
 
@@ -64,12 +97,18 @@ public class Video360Component extends RelativeLayout {
             Log.e(TAG, "Error loading video: " + errorMessage);
         }
 
+         @Override
+        public void onClick() {
+            togglePause();
+        }
+
         /**
          * Update the UI every frame.
          */
         @Override
         public void onNewFrame() {
-
+            updateStatusText();
+            seekBar.setProgress((int) videoWidgetView.getCurrentPosition());
         }
 
         /**

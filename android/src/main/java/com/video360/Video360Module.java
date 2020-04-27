@@ -117,40 +117,6 @@ public class Video360Module extends SimpleViewManager {
         //videoLoaderTask.execute(Pair.create(uri, videoOptions));
     }
 
-    private class ActivityEventListener extends VrVideoEventListener {
-        @Override
-        public void onLoadSuccess() {
-
-            Log.i(TAG, "Successfully loaded video " + view.videoWidgetView.getDuration());
-        }
-
-        /**
-         * Called by video widget on the UI thread on any asynchronous error.
-         */
-        @Override
-        public void onLoadError(String errorMessage) {
-            // An error here is normally due to being unable to decode the video format.
-            Log.e(TAG, "Error loading video: " + errorMessage);
-        }
-
-        /**
-         * Update the UI every frame.
-         */
-        @Override
-        public void onNewFrame() {
-
-        }
-
-        /**
-         * Make the video play in a loop. This method could also be used to move to the next video in
-         * a playlist.
-         */
-        @Override
-        public void onCompletion() {
-            if(view != null) view.videoWidgetView.seekTo(0);
-        }
-    }
-
     class VideoLoaderTask extends AsyncTask<Pair<Uri, VrVideoView.Options>, Void, Boolean> {
         @SuppressWarnings("WrongThread")
         protected Boolean doInBackground(Pair<Uri, VrVideoView.Options>... args) {
