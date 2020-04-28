@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
+import android.widget.ImageButton;
 import com.google.vr.sdk.widgets.video.VrVideoEventListener;
 import com.google.vr.sdk.widgets.video.VrVideoView;
 
@@ -16,9 +16,10 @@ public class Video360Component extends RelativeLayout {
     private View view = null;
 
     protected VrVideoView videoWidgetView;
-    private SeekBar seekBar;
+    protected SeekBar seekBar;
     private RelativeLayout viewControls;
     private TextView statusText;
+    private ImageButton playToggle;
 
     private boolean isPaused = false;
 
@@ -36,6 +37,13 @@ public class Video360Component extends RelativeLayout {
         videoWidgetView = (VrVideoView) view.findViewById(R.id.video_view);
         videoWidgetView.setEventListener(new ActivityEventListener());
 
+        playToggle = (ImageButton) view.findViewById(R.id.play_toggle);
+        playToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                togglePause();
+            }
+        });
     }
 
     private void updateStatusText() {
@@ -55,6 +63,7 @@ public class Video360Component extends RelativeLayout {
     }
 
      private void togglePause() {
+        playToggle.setImageResource(isPaused ? R.drawable.pause : R.drawable.play);
         if (isPaused) {
             videoWidgetView.playVideo();
         } else {

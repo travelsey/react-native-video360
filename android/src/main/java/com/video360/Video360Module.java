@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
-
+import android.graphics.Color;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -88,6 +88,12 @@ public class Video360Module extends SimpleViewManager {
     @ReactProp(name = "enableInfoButton")
     public void setInfoButtonEnabled(Video360Component view, Boolean enabled) {
         view.videoWidgetView.setInfoButtonEnabled(enabled);
+    }
+
+    @ReactProp(name = "colorBar")
+    public void setColorBar(Video360Component view, String color) {
+        view.seekBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color)));
+        view.seekBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor(color)));
     }
 
     @ReactProp(name = "urlVideo")

@@ -16,7 +16,7 @@
     <RelativeLayout
         android:id="@+id/viewControls"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:background="#CC000000"
         >
@@ -28,8 +28,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:paddingStart="0dp"
-            android:paddingTop="4dp"
-            android:src="@drawable/volume_on"/>
+            android:gravity="center_vertical"
+            android:src="@drawable/play"/>
         <!-- Seeking UI & progress indicator.-->
         <SeekBar
             android:layout_toRightOf="@+id/play_toggle"

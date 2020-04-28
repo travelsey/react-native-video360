@@ -148,7 +148,7 @@ public class VideoPlayer360Actity extends Activity {
 
     private void setIsMuted(boolean isMuted) {
         this.isMuted = isMuted;
-        volumeToggle.setImageResource(isMuted ? R.drawable.volume_off : R.drawable.volume_on);
+        //volumeToggle.setImageResource(isMuted ? R.drawable.volume_off : R.drawable.volume_on);
         videoWidgetView.setVolume(isMuted ? 0.0f : 1.0f);
     }
 
