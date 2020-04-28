@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-                android:background="#000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
     >
 
     <com.google.vr.sdk.widgets.video.VrVideoView
@@ -37,7 +37,9 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            android:layout_weight="8"/>
+            android:layout_weight="8"
+            android:thumb="@drawable/thumb_style"
+            />
 
         <TextView
             android:id="@+id/status_text"
