@@ -18,7 +18,6 @@ public class Video360Component extends RelativeLayout {
     protected VrVideoView videoWidgetView;
     protected SeekBar seekBar;
     private RelativeLayout viewControls;
-    private TextView statusText;
     private ImageButton playToggle;
 
     private boolean isPaused = false;
@@ -31,7 +30,6 @@ public class Video360Component extends RelativeLayout {
         this.view = inflate(getContext(), R.layout.activity_video_player_360, this);
         viewControls = (RelativeLayout) view.findViewById(R.id.viewControls);
         //viewControls.setVisibility(View.GONE);
-        statusText = (TextView) view.findViewById(R.id.status_text);
         seekBar = (SeekBar) view.findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
         videoWidgetView = (VrVideoView) view.findViewById(R.id.video_view);
@@ -47,14 +45,6 @@ public class Video360Component extends RelativeLayout {
     }
 
     private void updateStatusText() {
-        StringBuilder status = new StringBuilder();
-        status.append(isPaused ? "Paused: " : "Playing: ");
-        status.append(String.format("%.2f", videoWidgetView.getCurrentPosition() / 1000f));
-        status.append(" / ");
-        status.append(videoWidgetView.getDuration() / 1000f);
-        status.append(" seconds.");
-        statusText.setText(status.toString());
-
         if(isPaused){
             viewControls.setVisibility(View.VISIBLE);
         }else{

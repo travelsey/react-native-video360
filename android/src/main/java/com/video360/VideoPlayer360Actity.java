@@ -93,7 +93,7 @@ public class VideoPlayer360Actity extends Activity {
 
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
-        statusText = (TextView) findViewById(R.id.status_text);
+        //statusText = (TextView) findViewById(R.id.status_text);
 
         videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
         videoWidgetView.setEventListener(new ActivityEventListener());
@@ -192,14 +192,6 @@ public class VideoPlayer360Actity extends Activity {
     }
 
     private void updateStatusText() {
-        StringBuilder status = new StringBuilder();
-        status.append(isPaused ? "Paused: " : "Playing: ");
-        status.append(String.format("%.2f", videoWidgetView.getCurrentPosition() / 1000f));
-        status.append(" / ");
-        status.append(videoWidgetView.getDuration() / 1000f);
-        status.append(" seconds.");
-        statusText.setText(status.toString());
-
         if(isPaused){
             viewControls.setVisibility(View.VISIBLE);
         }else{

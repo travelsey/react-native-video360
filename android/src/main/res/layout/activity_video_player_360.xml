@@ -40,18 +40,5 @@
             android:layout_weight="8"
             android:thumb="@drawable/thumb_style"
             />
-
-        <TextView
-            android:id="@+id/status_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@+id/seek_bar"
-            android:layout_weight="1"
-            android:paddingEnd="32dp"
-            android:paddingStart="32dp"
-            android:text="Loading ..."
-            android:textColor="#CCFFFFFF"
-            android:textSize="12sp"/>
     </RelativeLayout>
 </RelativeLayout>
