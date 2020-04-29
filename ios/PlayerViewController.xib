@@ -28,7 +28,7 @@
                                 <constraint firstAttribute="width" constant="30" id="cio-I0-hJi"/>
                                 <constraint firstAttribute="width" secondItem="Sao-08-lB7" secondAttribute="height" multiplier="1:1" id="s1v-N1-p9H"/>
                             </constraints>
-                            <state key="normal" image="Play"/>
+                            <state key="normal" image="play.png"/>
                             <connections>
                                 <action selector="play:" destination="-1" eventType="touchUpInside" id="2rv-Od-rp4"/>
                             </connections>
@@ -39,7 +39,7 @@
                                 <constraint firstAttribute="width" secondItem="1uE-Hu-j8W" secondAttribute="height" multiplier="1:1" id="EE2-vC-g9K"/>
                                 <constraint firstAttribute="width" constant="30" id="gnf-XV-LBO"/>
                             </constraints>
-                            <state key="normal" image="Pause"/>
+                            <state key="normal" image="pause.png"/>
                             <connections>
                                 <action selector="pause:" destination="-1" eventType="touchUpInside" id="Yms-Ki-l0k"/>
                             </connections>
@@ -70,7 +70,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Pause" width="18" height="18"/>
-        <image name="Play" width="18" height="18"/>
+        <image name="pause.png" width="36" height="36"/>
+        <image name="play.png" width="36" height="36"/>
     </resources>
 </document>

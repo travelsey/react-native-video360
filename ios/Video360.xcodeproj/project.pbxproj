@@ -10,8 +10,8 @@
 		C9AC13422397FC5400604865 /* Video360.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC133B2397FC5400604865 /* Video360.m */; };
 		C9AC13432397FC5400604865 /* PlayerManger.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC133E2397FC5400604865 /* PlayerManger.m */; };
 		C9AC13442397FC5400604865 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC133F2397FC5400604865 /* PlayerViewController.m */; };
-		F182905224599E4400D9D2FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1828FF324597D6700D9D2FA /* Assets.xcassets */; };
-		F18290882459A43000D9D2FA /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = F1828FF324597D6700D9D2FA /* Assets.xcassets */; };
+		F18290C02459A90C00D9D2FA /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = F18290BE2459A90B00D9D2FA /* play.png */; };
+		F18290C12459A90C00D9D2FA /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F18290BF2459A90C00D9D2FA /* pause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +36,8 @@
 		C9AC133F2397FC5400604865 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		C9AC13402397FC5400604865 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		C9AC13412397FC5400604865 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
-		F1828FF324597D6700D9D2FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F18290BE2459A90B00D9D2FA /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		F18290BF2459A90C00D9D2FA /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +62,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				F1828FF324597D6700D9D2FA /* Assets.xcassets */,
+				F18290BF2459A90C00D9D2FA /* pause.png */,
+				F18290BE2459A90B00D9D2FA /* play.png */,
 				C9AC133D2397FC5400604865 /* PlayerManager.h */,
 				C9AC133E2397FC5400604865 /* PlayerManger.m */,
 				C9AC13402397FC5400604865 /* PlayerViewController.h */,
@@ -139,7 +141,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F182905224599E4400D9D2FA /* Assets.xcassets in Resources */,
+				F18290C12459A90C00D9D2FA /* pause.png in Resources */,
+				F18290C02459A90C00D9D2FA /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +153,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18290882459A43000D9D2FA /* Assets.xcassets in Sources */,
 				C9AC13432397FC5400604865 /* PlayerManger.m in Sources */,
 				C9AC13422397FC5400604865 /* Video360.m in Sources */,
 				C9AC13442397FC5400604865 /* PlayerViewController.m in Sources */,
