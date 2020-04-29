@@ -2,6 +2,7 @@
 
 #import "Video360.h"
 #import "PlayerViewController.h"
+#import "Utils.m"
 
 
 @implementation Video360 {
@@ -13,8 +14,6 @@
   self = [super init];
   if (self) {
     _playerView = [[PlayerViewController alloc] init];
-    // NSString* urlVideo = @"https://player.vimeo.com/external/338903511.sd.mp4?s=9c6ee2a2bf4cce2e45d386cee1c52193e0bb1312&profile_id=164&oauth2_token_id=1207395751";
-    // _playerView.demoType = DemoType_AVPlayer_VR;
   }
   return self;
 }

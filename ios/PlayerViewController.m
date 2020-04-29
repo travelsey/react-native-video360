@@ -5,14 +5,12 @@
 @interface PlayerViewController ()
 
 @property (nonatomic, strong) SGPlayer * player;
-
-@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UISlider *progressSilder;
-@property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
-
 @property (nonatomic, assign) BOOL progressSilderTouching;
-
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *playButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *pauseButton;
+@property UIImage* playImage;
+@property UIImage* pauseImage;
 @end
 
 @implementation PlayerViewController
@@ -21,6 +19,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
+    self.playImage = [UIImage imageNamed:@"Play"];
+    self.pauseImage = [UIImage imageNamed:@"Pause"];
     
     self.player = [SGPlayer player];
     [self.player registerPlayerNotificationTarget:self
@@ -32,13 +32,11 @@
         NSLog(@"player display view did click!");
     }];
     [self.view insertSubview:self.player.view atIndex:0];
-//    NSLog(@"-----urlVideo: %@", self.urlVideo);
-    
     [self playVideFromUrl:[NSURL URLWithString:self.urlVideo]];
+    [self.playButton setImage:_playImage forState:UIControlStateNormal];
+    [self.pauseButton setImage:_pauseImage forState:UIControlStateNormal];
+    self.pauseButton.hidden = true;
     return;
-    
-    // Gets an dictionary with each available youtube url
-    //NSURL * vrVideo = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:self.urlVideo ofType:@"mp4"]];
     
 }
 
@@ -66,8 +64,8 @@
 //    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
 //        AppDelegate* dgt = (AppDelegate*)[UIApplication sharedApplication].delegate;
 //        dgt.shouldSupportPortrait = TRUE;
-//        
-//        
+//
+//
 //        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
 //        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 //        [UINavigationController attemptRotationToDeviceOrientation];
@@ -144,11 +142,15 @@
 
 - (IBAction)play:(id)sender
 {
+    self.playButton.hidden = true;
+    self.pauseButton.hidden = false;
     [self.player play];
 }
 
 - (IBAction)pause:(id)sender
 {
+    self.pauseButton.hidden = true;
+    self.playButton.hidden = false;
     [self.player pause];
 }
 
@@ -177,7 +179,6 @@
             break;
         case SGPlayerStateReadyToPlay:
             text = @"Preparado";
-            self.totalTimeLabel.text = [self timeStringFromSeconds:self.player.duration];
             [self.player play];
             break;
         case SGPlayerStatePlaying:
@@ -193,7 +194,6 @@
             text = @"Error";
             break;
     }
-    self.stateLabel.text = text;
 }
 
 - (void)progressAction:(NSNotification *)notification
@@ -202,7 +202,6 @@
     if (!self.progressSilderTouching) {
         self.progressSilder.value = progress.percent;
     }
-    self.currentTimeLabel.text = [self timeStringFromSeconds:progress.current];
 }
 
 - (void)playableAction:(NSNotification *)notification

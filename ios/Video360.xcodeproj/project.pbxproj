@@ -33,6 +33,7 @@
 		C9AC133F2397FC5400604865 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		C9AC13402397FC5400604865 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		C9AC13412397FC5400604865 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		F1828FF324597D6700D9D2FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				F1828FF324597D6700D9D2FA /* Assets.xcassets */,
 				C9AC133D2397FC5400604865 /* PlayerManager.h */,
 				C9AC133E2397FC5400604865 /* PlayerManger.m */,
 				C9AC13402397FC5400604865 /* PlayerViewController.h */,
