@@ -11,6 +11,7 @@
                 <outlet property="pauseButton" destination="1uE-Hu-j8W" id="geE-sz-Uny"/>
                 <outlet property="playButton" destination="Sao-08-lB7" id="Zp5-Dg-gUa"/>
                 <outlet property="progressSilder" destination="KvZ-4g-DxG" id="OnA-jj-vrn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="4Xa-K5-g7e"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
