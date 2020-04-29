@@ -10,16 +10,18 @@
 		C9AC13422397FC5400604865 /* Video360.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC133B2397FC5400604865 /* Video360.m */; };
 		C9AC13432397FC5400604865 /* PlayerManger.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC133E2397FC5400604865 /* PlayerManger.m */; };
 		C9AC13442397FC5400604865 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC133F2397FC5400604865 /* PlayerViewController.m */; };
+		F182905224599E4400D9D2FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1828FF324597D6700D9D2FA /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+		58B511D91A9E6C8500147676 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -87,7 +89,8 @@
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
-				58B511D91A9E6C8500147676 /* CopyFiles */,
+				58B511D91A9E6C8500147676 /* Copy Files */,
+				F182905124599E3E00D9D2FA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +132,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F182905124599E3E00D9D2FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F182905224599E4400D9D2FA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
