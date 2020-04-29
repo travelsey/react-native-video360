@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   
   s.ios.library = 'bz2.1.0','iconv.2','z.1'
   s.source_files = "ios/**/*.{h,m,swift}"
-  s.resources = ['ios/*.{xib}']
+  s.resources = ['ios/*.{xib,png}']
   s.requires_arc = true
 
   s.dependency "React"
