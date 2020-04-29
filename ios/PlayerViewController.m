@@ -9,8 +9,8 @@
 @property (nonatomic, assign) BOOL progressSilderTouching;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *playButton;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *pauseButton;
-@property UIImage* playImage;
-@property UIImage* pauseImage;
+//@property UIImage* playImage;
+//@property UIImage* pauseImage;
 @end
 
 @implementation PlayerViewController
@@ -19,8 +19,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    self.playImage = [UIImage imageNamed:@"Play"];
-    self.pauseImage = [UIImage imageNamed:@"Pause"];
+    //self.playImage = [UIImage imageNamed:@"Play"];
+    //self.pauseImage = [UIImage imageNamed:@"Pause"];
     
     self.player = [SGPlayer player];
     [self.player registerPlayerNotificationTarget:self
@@ -33,8 +33,8 @@
     }];
     [self.view insertSubview:self.player.view atIndex:0];
     [self playVideFromUrl:[NSURL URLWithString:self.urlVideo]];
-    [self.playButton setImage:_playImage forState:UIControlStateNormal];
-    [self.pauseButton setImage:_pauseImage forState:UIControlStateNormal];
+    //[self.playButton setImage:_playImage forState:UIControlStateNormal];
+    //[self.pauseButton setImage:_pauseImage forState:UIControlStateNormal];
     self.pauseButton.hidden = true;
     return;
     

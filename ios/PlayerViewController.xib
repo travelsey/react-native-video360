@@ -22,22 +22,24 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="cpX-fG-Aax">
                     <rect key="frame" x="24" y="625" width="327" height="30"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sao-08-lB7">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sao-08-lB7">
                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="cio-I0-hJi"/>
                                 <constraint firstAttribute="width" secondItem="Sao-08-lB7" secondAttribute="height" multiplier="1:1" id="s1v-N1-p9H"/>
                             </constraints>
+                            <state key="normal" image="Play"/>
                             <connections>
                                 <action selector="play:" destination="-1" eventType="touchUpInside" id="2rv-Od-rp4"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uE-Hu-j8W">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uE-Hu-j8W">
                             <rect key="frame" x="54" y="0.0" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="1uE-Hu-j8W" secondAttribute="height" multiplier="1:1" id="EE2-vC-g9K"/>
                                 <constraint firstAttribute="width" constant="30" id="gnf-XV-LBO"/>
                             </constraints>
+                            <state key="normal" image="Pause"/>
                             <connections>
                                 <action selector="pause:" destination="-1" eventType="touchUpInside" id="Yms-Ki-l0k"/>
                             </connections>
@@ -67,4 +69,8 @@
             <point key="canvasLocation" x="32.799999999999997" y="52.623688155922046"/>
         </view>
     </objects>
+    <resources>
+        <image name="Pause" width="18" height="18"/>
+        <image name="Play" width="18" height="18"/>
+    </resources>
 </document>
