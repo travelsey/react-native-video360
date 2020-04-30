@@ -124,6 +124,23 @@ public class Video360Module extends SimpleViewManager {
         videoLoaderTask.execute(Pair.create(uri, videoOptions));
     }
 
+    @ReactProp(name = "appState")
+    public void setAppState(Video360Component view, String state) {
+        if(!state.equals("active")){
+            view.videoWidgetView.pauseRendering();
+            view.videoWidgetView.pauseVideo();
+        }
+        else{
+            if(state.equals("destroy")){
+                view.videoWidgetView.shutdown();
+            }else{
+                view.videoWidgetView.resumeRendering();
+                view.videoWidgetView.playVideo();
+            }
+        }
+        Log.e(TAG, "ATTENZIONE STATO *********  " + state);
+    }
+
     class VideoLoaderTask extends AsyncTask<Pair<Uri, VrVideoView.Options>, Void, Boolean> {
         @SuppressWarnings("WrongThread")
         protected Boolean doInBackground(Pair<Uri, VrVideoView.Options>... args) {
