@@ -35,7 +35,7 @@
     [self playVideFromUrl:[NSURL URLWithString:self.urlVideo]];
     //[self.playButton setImage:_playImage forState:UIControlStateNormal];
     //[self.pauseButton setImage:_pauseImage forState:UIControlStateNormal];
-    self.pauseButton.hidden = true;
+    self.playButton.hidden = true;
     return;
     
 }
