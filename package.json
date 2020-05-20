@@ -1,7 +1,7 @@
 {
   "name": "react-native-video360",
   "title": "React Native Video360 plugin",
-  "version": "1.1.0",
+  "version": "1.0.6",
   "description": "A react native module to play 360 videos, using the SGPlayer for iOS, and Google VR for Android",
   "main": "index.js",
   "repository": {
